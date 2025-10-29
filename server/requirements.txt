@@ -1,0 +1,43 @@
+# -------------------------------
+# Server Dependencies
+# -------------------------------
+
+express==5.1.0                # Fast, minimal web framework for Node.js
+cors==2.8.5                   # Enables Cross-Origin Resource Sharing (CORS)
+dotenv==17.2.3                # Loads environment variables from a .env file
+nodemon==3.1.10               # Automatically restarts the server during development
+
+# -------------------------------
+# Authentication & Security
+# -------------------------------
+
+bcrypt==6.0.0                 # Library for password hashing (native)
+bcryptjs==3.0.2               # Pure JavaScript version of bcrypt
+jsonwebtoken==9.0.2           # JSON Web Token implementation for authentication
+
+# -------------------------------
+# Database
+# -------------------------------
+
+mongoose==8.19.2              # MongoDB object modeling tool for Node.js
+
+# -------------------------------
+# File Uploads & Cloud Storage
+# -------------------------------
+
+multer==2.0.2                 # Middleware for handling file uploads
+cloudinary==2.8.0             # Cloud-based image and video storage service integration
+
+# -------------------------------
+# Monitoring & Error Tracking
+# -------------------------------
+
+@sentry/node==10.21.0         # Error tracking and monitoring for Node.js apps
+@sentry/profiling-node==10.21.0 # Performance profiling integration for Sentry
+
+# -------------------------------
+# External Services
+# -------------------------------
+
+@clerk/express==1.7.42        # Middleware for authentication using Clerk in Express
+svix==1.77.0                  # Webhook management and event delivery library
