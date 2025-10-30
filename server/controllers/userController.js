@@ -34,9 +34,11 @@ export const getUserData = async (req, res) => {
 export const applyForJob = async (req, res) => {
     const { jobId } = req.body;
     const userId = req.auth.userId;
+    console.log('applyForJob', { jobId, userId: req.auth.userId, auth: req.auth });
 
     try {
         const existingApps = await JobApplication.find({ jobId, userId });
+        console.log('[applyForJob] Checking existingApps for jobId:', jobId, 'userId:', userId, '-> Result:', existingApps);
         if (existingApps.length > 0) {
             return res.json({ success: false, message: 'Already Applied Job' });
         }
@@ -76,6 +78,8 @@ export const getUserJobApplication = async (req, res) => {
                     image: company.image,
                 } : null,
                 jobId: job ? {
+                    _id: job._id || job.jobId,
+                    jobId: job.jobId,
                     title: job.title,
                     description: job.description,
                     location: job.location,

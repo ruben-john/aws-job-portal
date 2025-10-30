@@ -23,6 +23,12 @@ export default {
 
   // Find applications by jobId
   async find(filters) {
+    if (filters.jobId && filters.userId) {
+      // Fetch all applications for this jobId
+      const items = await queryItems(TABLES.APPLICATIONS, filters.jobId);
+      // AND filter: Only keep those from this user
+      return items.filter(x => x.userId === filters.userId).map(item => this.formatApplication(item));
+    }
     if (filters.jobId) {
       const items = await queryItems(TABLES.APPLICATIONS, filters.jobId);
       return items.map(item => this.formatApplication(item));

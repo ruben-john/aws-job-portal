@@ -45,10 +45,11 @@ const ApplyJob = () => {
     const checkAlreadyApplied = () => {
         if (!userApplications || !jobData) return;
 
-        const applied = userApplications.some(
-            (item) => item.jobId._id === jobData._id
-            // If your API returns job as nested object, use: application.job._id
-        );
+        const jobIdsToMatch = [jobData._id, jobData.jobId];
+        const applied = userApplications.some((item) => {
+            const jobObj = item.jobId || {};
+            return jobIdsToMatch.includes(jobObj._id) || jobIdsToMatch.includes(jobObj.jobId);
+        });
 
         setIsAlreadyApplied(applied);
     };

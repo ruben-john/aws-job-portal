@@ -1,5 +1,5 @@
 // AppContextProvider.js
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { AppContext } from "./AppContext";
 import { useState } from "react";
 import axios from "axios";
@@ -73,10 +73,17 @@ export const AppContextProvider = ({ children }) => {
         try {
 
             const token = await getToken();
+            console.log("[fetchUserApplications] Token:", token);
             const { data } = await axios.get(backendUrl + '/api/users/applications',
                 { headers: { Authorization: `Bearer ${token}` } });
 
             if (data.success) {
+                if (user) {
+                    console.log("[fetchUserApplications] userId:", user.id);
+                } else {
+                    console.log("[fetchUserApplications] user is null!");
+                }
+                console.log("API applications response:", data.applications);
                 setUserApplications(data.applications); // <-- fix here
             }
             else {
@@ -106,6 +113,14 @@ export const AppContextProvider = ({ children }) => {
         }
     }
 
+    // Utility: on logout, clear user data and applications
+    const handleLogout = () => {
+        setUserData(null);
+        setUserApplications([]);
+        console.log("[AppContextProvider] handleLogout: Cleared userData and userApplications");
+        window.location.reload(); // Force reload to reset all state
+    };
+
     useEffect(() => {
         fetchJobs();
         const storedCompanyToken = localStorage.getItem('companyToken');
@@ -125,6 +140,7 @@ export const AppContextProvider = ({ children }) => {
     useEffect(() => {
 
         if (user) {
+            console.log("[useEffect user change] user:", user);
             fetchUserData();
             fetchUserApplications();
         }
@@ -142,7 +158,8 @@ export const AppContextProvider = ({ children }) => {
         userData, setUserData,
         userApplications, setUserApplications,
         fetchUserData,
-        fetchUserApplications
+        fetchUserApplications,
+        handleLogout
     };
     
     return (

@@ -44,7 +44,8 @@ export async function getCandidateSummary(req, res) {
     if (!resumeText && user?.resume) {
       try {
         resumeText = await extractResumeTextFromUrl(user.resume);
-        await JobApplication.findByIdAndUpdate(applicationId, { resumeText });
+        // Always update using the normalized applicationId from the fetched record
+        await JobApplication.findByIdAndUpdate(app.applicationId || applicationId, { resumeText });
       } catch (_) {}
     }
 
