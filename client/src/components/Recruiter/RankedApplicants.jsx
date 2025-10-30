@@ -72,7 +72,8 @@ const RankedApplicants = () => {
     setSummaryLoading(true);
     setSummary(null);
     try {
-      const res = await axios.get(`${backendUrl}/api/recruiter/application/${applicationId}/summary`, { headers: { token: companyToken } });
+      const encodedId = encodeURIComponent(applicationId);
+      const res = await axios.get(`${backendUrl}/api/recruiter/application/${encodedId}/summary`, { headers: { token: companyToken } });
       if (res.data.success) setSummary(res.data);
       else setSummary({ error: res.data.message || 'Failed to generate summary' });
     } catch (e) {
