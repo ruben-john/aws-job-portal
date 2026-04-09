@@ -26,26 +26,26 @@ const Hero = () => {
 
     return (
         <div>
-            <section className="bg-gradient-to-br from-purple-600 via-purple-700 to-purple-900 text-white py-20 px-6">
+            <section className="py-20 px-6">
                 <div className="max-w-5xl mx-auto text-center">
                     {/* Headings */}
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                        Over <span className="text-purple-300">10,000</span> Jobs to Apply
+                    <h1 className="text-4xl md:text-6xl font-bold mb-4 text-gray-900 tracking-tight">
+                        Over <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">10,000</span> Jobs to Apply
                     </h1>
-                    <p className="text-lg md:text-xl text-purple-100 mb-10">
+                    <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl mx-auto font-medium">
                         Your next career move starts here. Explore top companies, discover exciting roles,
                         and take the first step toward your future.
                     </p>
 
                     {/* Search Bar */}
-                    <div className="flex flex-col md:flex-row bg-white rounded-2xl overflow-hidden shadow-lg max-w-3xl mx-auto">
+                    <div className="flex flex-col md:flex-row glass-card rounded-full overflow-hidden max-w-3xl mx-auto p-1">
                         {/* Job search input */}
-                        <div className="flex items-center gap-3 px-4 py-3 border-b md:border-b-0 md:border-r border-gray-200 flex-1">
+                        <div className="flex items-center gap-3 px-6 py-3 border-b md:border-b-0 md:border-r border-gray-300/50 flex-1">
                             <img src={assets.search_icon} alt="Search" className="w-5 h-5 text-gray-400" />
                             <input
                                 type="text"
                                 placeholder="Search for jobs"
-                                className="w-full outline-none text-gray-700 placeholder-gray-400"
+                                className="w-full bg-transparent outline-none text-gray-800 placeholder-gray-500 font-medium"
                                 ref={titleRef}
                             />
                         </div>
@@ -62,15 +62,15 @@ const Hero = () => {
                         </div>
 
                         {/* Search button (inline, right side) */}
-                        <button className="bg-pink-500 hover:bg-pink-600 transition-colors px-8 py-3 text-white font-medium md:rounded-none md:rounded-r-2xl cursor-pointer" onClick={onSearch}>
+                        <button className="btn-primary px-8 py-3 rounded-full md:ml-1 font-medium text-lg min-w-32" onClick={onSearch}>
                             Search
                         </button>
                     </div>
                 </div>
             </section>
 
-            <div className="bg-white py-12 px-6">
-                <div className="max-w-6xl mx-auto text-center">
+            <div className="py-12 px-6">
+                <div className="max-w-6xl mx-auto text-center glass-card rounded-3xl p-8">
                     {/* Heading */}
                     <p className="text-gray-600 text-lg font-medium mb-6">Trusted by</p>
 

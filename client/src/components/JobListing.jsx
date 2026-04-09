@@ -63,11 +63,11 @@ const JobListing = () => {
 
 
     return (
-        <div className="max-w-7xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-xl">
+        <div className="max-w-7xl mx-auto mt-10 p-8 glass-card rounded-3xl">
             <div className="flex flex-col lg:flex-row gap-10">
 
                 {/* Left Column: Filters */}
-                <aside className="w-full lg:w-1/4 flex flex-col gap-8">
+                <aside className="w-full lg:w-1/4 flex flex-col gap-8 bg-white/40 backdrop-blur-md p-6 rounded-2xl shadow-sm border border-white/60 h-fit">
 
                     {/* Category Filter */}
                     <div>
@@ -75,7 +75,7 @@ const JobListing = () => {
                         <ul className="flex flex-col gap-3">
                             {JobCategories.map((category, index) => (
                                 <li key={index}>
-                                    <label className="flex items-center p-3 rounded-lg border border-gray-200 hover:bg-gray-50 transition cursor-pointer">
+                                    <label className="flex items-center p-3 rounded-xl border border-white/60 bg-white/50 hover:bg-white/80 transition cursor-pointer shadow-sm hover:shadow-md hover:-translate-y-0.5 duration-300">
                                         <input
                                             type="checkbox"
                                             className="h-5 w-5 text-blue-600 rounded accent-blue-600 focus:ring-2 focus:ring-blue-300"
@@ -95,7 +95,7 @@ const JobListing = () => {
                         <ul className="flex flex-col gap-3">
                             {JobLocations.map((location, index) => (
                                 <li key={index}>
-                                    <label className="flex items-center p-3 rounded-lg border border-gray-200 hover:bg-gray-50 transition cursor-pointer">
+                                    <label className="flex items-center p-3 rounded-xl border border-white/60 bg-white/50 hover:bg-white/80 transition cursor-pointer shadow-sm hover:shadow-md hover:-translate-y-0.5 duration-300">
                                         <input
                                             type="checkbox"
                                             className="h-5 w-5 text-green-600 rounded accent-green-600 focus:ring-2 focus:ring-green-300"
@@ -181,9 +181,9 @@ const JobListing = () => {
                                     <button
                                         key={index}
                                         onClick={() => setCurrentPage(index + 1)}
-                                        className={`px-4 py-2 rounded-lg transition ${currentPage === index + 1
-                                            ? "bg-gray-600 text-white"
-                                            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                                        className={`px-4 py-2 rounded-full transition shadow-sm font-medium hover:scale-105 active:scale-95 ${currentPage === index + 1
+                                            ? "btn-primary border-transparent"
+                                            : "bg-white/60 text-gray-700 hover:bg-white/80 border-white/60"
                                             }`}
                                     >
                                         {index + 1}

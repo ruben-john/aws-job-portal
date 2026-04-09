@@ -106,7 +106,7 @@ const ApplyJob = () => {
     }, [jobData, userApplications, id]);
 
     return (
-        <div className="bg-gray-50 min-h-screen">
+        <div className="min-h-screen">
             <Navbar />
 
             {jobData ? (
@@ -115,7 +115,7 @@ const ApplyJob = () => {
 
                         {/* Left Column: Job Details + Description */}
                         <div className="flex-1 flex flex-col gap-8">
-                            <div className="bg-white shadow-2xl rounded-3xl p-8 flex flex-col gap-6">
+                            <div className="glass-card rounded-3xl p-8 flex flex-col gap-6">
                                 <div className="flex items-center gap-6">
                                     <img
                                         src={jobData.companyId.image}
@@ -125,21 +125,21 @@ const ApplyJob = () => {
                                     <h1 className="text-3xl font-bold text-gray-800">{jobData.title}</h1>
                                 </div>
 
-                                <div className="flex flex-wrap items-center gap-4 text-gray-600">
-                                    <span className="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-lg hover:bg-blue-50 transition">
-                                        <img src={assets.suitcase_icon} className="w-5 h-5" />
+                                <div className="flex flex-wrap items-center gap-4 text-gray-700">
+                                    <span className="flex items-center gap-2 bg-white/60 border border-white/60 px-4 py-2 rounded-full hover:bg-white/80 transition shadow-sm font-medium">
+                                        <img src={assets.suitcase_icon} className="w-5 h-5 opacity-80" />
                                         {jobData.companyId.name}
                                     </span>
-                                    <span className="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-lg hover:bg-blue-50 transition">
-                                        <img src={assets.location_icon} className="w-5 h-5" />
+                                    <span className="flex items-center gap-2 bg-white/60 border border-white/60 px-4 py-2 rounded-full hover:bg-white/80 transition shadow-sm font-medium">
+                                        <img src={assets.location_icon} className="w-5 h-5 opacity-80" />
                                         {jobData.location}
                                     </span>
-                                    <span className="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-lg hover:bg-blue-50 transition">
-                                        <img src={assets.person_icon} className="w-5 h-5" />
+                                    <span className="flex items-center gap-2 bg-white/60 border border-white/60 px-4 py-2 rounded-full hover:bg-white/80 transition shadow-sm font-medium">
+                                        <img src={assets.person_icon} className="w-5 h-5 opacity-80" />
                                         {jobData.level}
                                     </span>
-                                    <span className="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-lg hover:bg-blue-50 transition">
-                                        <img src={assets.money_icon} className="w-5 h-5" />
+                                    <span className="flex items-center gap-2 bg-white/60 border border-white/60 px-4 py-2 rounded-full hover:bg-white/80 transition shadow-sm font-medium">
+                                        <img src={assets.money_icon} className="w-5 h-5 opacity-80" />
                                         CTC: {kconvert.convertTo(jobData.salary)}
                                     </span>
 
@@ -151,8 +151,8 @@ const ApplyJob = () => {
                                             className={`${
                                                 isAlreadyApplied
                                                     ? "bg-gray-400 cursor-not-allowed"
-                                                    : "bg-blue-600 hover:bg-blue-700"
-                                            } text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition transform hover:scale-105`}
+                                                    : "btn-primary hover:scale-[1.05] active:scale-[0.95]"
+                                            } text-white font-semibold px-8 py-3 rounded-full shadow-md transition-all duration-300 w-full lg:w-auto`}
                                         >
                                             {isAlreadyApplied ? "Already Applied" : "Apply Now"}
                                         </button>
@@ -164,9 +164,9 @@ const ApplyJob = () => {
                             </div>
 
                             {/* Job Description */}
-                            <div className="bg-gray-50 rounded-2xl p-6 shadow-inner">
-                                <h2 className="text-2xl font-semibold mb-4 text-gray-700">Job Description</h2>
-                                <div className="text-gray-600 leading-relaxed space-y-4" dangerouslySetInnerHTML={{ __html: jobData.description }}></div>
+                            <div className="glass-card rounded-3xl p-8 mb-10">
+                                <h2 className="text-2xl font-bold mb-6 text-gray-800">Job Description</h2>
+                                <div className="text-gray-700 leading-relaxed font-sans space-y-4" dangerouslySetInnerHTML={{ __html: jobData.description }}></div>
                             </div>
                         </div>
 

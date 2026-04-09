@@ -112,15 +112,7 @@ export const updateUserResume = async (req, res) => {
         }
 
         if (resumeFile) {
-            const resumeUpload = await Cloudinary.uploader.upload(resumeFile.path);
-            const s3Upload = await s3.upload({
-                Bucket: process.env.S3_BUCKET_NAME1,
-                Key: `resumes/${Date.now()}-${resumeFile.originalname}`,
-                Body: fs.createReadStream(resumeFile.path),
-                ContentType: resumeFile.mimetype
-                }).promise();
-             userData.resume = resumeUpload.secure_url;
-             userData.resumeS3 = s3Upload.Location;
+            const resumeUpload = await Cloudinary.uploader.upload(resumeFile.path, { resource_type: 'auto' });
             await User.findByIdAndUpdate(userId, { resume: resumeUpload.secure_url });
         }
 

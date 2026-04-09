@@ -11,7 +11,7 @@ const Navbar = () => {
   const { setShowRecruiterLogin } = useContext(AppContext);
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav className="glass shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
 
@@ -23,7 +23,7 @@ const Navbar = () => {
           {/* Buttons */}
           {user ? (
             <div className="flex items-center space-x-4">
-              <Link to="/applications" className="px-5 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition-all duration-300 ease-in-out cursor-pointer">
+              <Link to="/applications" className="px-5 py-2 btn-primary rounded-full cursor-pointer font-medium">
                 My Applications
               </Link>
               <p>Hi, {user.firstName + " " + user.lastName}</p>
@@ -31,10 +31,10 @@ const Navbar = () => {
             </div>
           ) : (
             <div className="flex space-x-4">
-              <button onClick={() => setShowRecruiterLogin(true)} className="px-5 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition-all duration-300 ease-in-out cursor-pointer">
+              <button onClick={() => setShowRecruiterLogin(true)} className="px-5 py-2 btn-primary rounded-full cursor-pointer font-medium border border-transparent">
                 Recruiter Login
               </button>
-              <button onClick={() => openSignIn()} className="px-5 py-2 bg-gray-200 text-gray-800 rounded-lg shadow-md hover:bg-gray-300 hover:shadow-lg transition-all duration-300 ease-in-out cursor-pointer">
+              <button onClick={() => openSignIn()} className="px-5 py-2 bg-white/60 backdrop-blur-md text-gray-800 rounded-full shadow-sm hover:scale-105 hover:bg-white/80 active:scale-95 transition-all duration-300 ease-in-out cursor-pointer font-medium border border-gray-200">
                 Login
               </button>
             </div>
